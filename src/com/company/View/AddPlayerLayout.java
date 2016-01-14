@@ -25,8 +25,7 @@ package com.company.View;
         public static JLabel inputText = new JLabel();
         public static JLabel tableText = new JLabel();
         public static JLabel playerCounter = new JLabel();
-        public static int resolution = 3;
-
+        public static int resolution = 2;
 
         /**
          * This method call a constructor from the super class and
@@ -64,7 +63,7 @@ package com.company.View;
             playerCounter.setFont(new Font("", Font.CENTER_BASELINE, 30/resolution));
             playerPanel.add(playerCounter);
 
-            addTable.setRowHeight(100); // höjd på raderna
+            addTable.setRowHeight(100 / resolution); // höjd på raderna
             addTable.setBounds(325/resolution,560/resolution,800/resolution,100*playersPossible/resolution); // possition och storlek
             addTable.setFont(new Font("", Font.CENTER_BASELINE, 30/resolution)); // font och storlek
             addTable.setBackground(Color.WHITE); // bakgrund
@@ -76,7 +75,7 @@ package com.company.View;
             input.setText("  ");
             playerPanel.add(input);
 
-            addPlayer.setBounds(925/resolution, 410/resolution, 200/resolution, 50/resolution);
+            addPlayer.setBounds(725/resolution, 410/resolution, 400/resolution, 70/resolution);
             addPlayer.setFont(new Font("", Font.CENTER_BASELINE, 30/resolution));
             addPlayer.setText("Lägg till");
             addPlayer.addActionListener(playerButtonListener);

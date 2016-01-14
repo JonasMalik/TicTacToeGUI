@@ -1,6 +1,8 @@
 package com.company.Controller;
 
 import com.company.View.AddPlayerLayout;
+import com.company.View.BoardLayout;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,10 +21,8 @@ public class MyPlayerListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-
-
         if (e.getSource() == AddPlayerLayout.startTheGame) {
-
+            new BoardLayout();
             AddPlayerLayout.playerFrame.dispose();
 
            // CreatePlayer.CreatingPlayers(6);
@@ -31,14 +31,18 @@ public class MyPlayerListener implements ActionListener {
         if (e.getSource() == AddPlayerLayout.addPlayer) {
             if (AddPlayerLayout.input.getText().trim().equals("")){
                 // felkod
-            }
-            else {
+
+            } else {
                 AddPlayerLayout.addTable.setEnabled(true);
                 AddPlayerLayout.rowData[i][0] = AddPlayerLayout.input.getText();
                 AddPlayerLayout.addTable.setEnabled(false);
                 AddPlayerLayout.input.setText("  ");
-                AddPlayerLayout.startTheGame.setEnabled(true);
                 i++;
+
+                if (i == AddPlayerLayout.playersPossible) {
+                    AddPlayerLayout.startTheGame.setEnabled(true);
+                }
+
                 AddPlayerLayout.playerCounter.setText(i + "/"+AddPlayerLayout.playersPossible);
             }
         }
