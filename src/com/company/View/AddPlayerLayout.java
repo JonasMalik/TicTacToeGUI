@@ -84,7 +84,7 @@ package com.company.View;
             startTheGame.setFont(new Font("", Font.CENTER_BASELINE, 40/resolution));
             startTheGame.setText("Starta spelet!");
             startTheGame.setEnabled(false);
-           // startTheGame.addActionListener(playerButtonListener);
+            startTheGame.addActionListener(playerButtonListener);
             playerPanel.add(startTheGame);
 
             playerFrame.setSize(1450/resolution, 1700/resolution);
