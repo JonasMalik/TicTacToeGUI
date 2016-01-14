@@ -1,9 +1,10 @@
 package com.company;
 
+import com.company.View.AddPlayerLayout;
+
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-    	//bla bla bla bla mm
+	new AddPlayerLayout();
     }
 }
