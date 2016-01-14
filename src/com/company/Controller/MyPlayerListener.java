@@ -1,3 +1,6 @@
+package com.company.Controller;
+
+import com.company.View.AddPlayerLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -19,8 +22,7 @@ public class MyPlayerListener implements ActionListener {
 
 
         if (e.getSource() == AddPlayerLayout.startTheGame) {
-            new Layout();
-            CreatePlayer.CreatingPlayers(i);
+
             AddPlayerLayout.playerFrame.dispose();
 
            // CreatePlayer.CreatingPlayers(6);

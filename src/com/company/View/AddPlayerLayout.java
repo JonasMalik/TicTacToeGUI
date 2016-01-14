@@ -1,5 +1,7 @@
 package com.company.View;
 
+    import com.company.Controller.MyPlayerListener;
+
     import javax.swing.*;
     import java.awt.*;
 
@@ -9,21 +11,21 @@ package com.company.View;
      */
     public class AddPlayerLayout extends JFrame {
 
-        static int playersPossible = 2;
+        public static int playersPossible = 2;
 
-        static String rowData[][] = new String[playersPossible][1];
-        static String columnNames[] = { "" };
-        static JPanel playerPanel = new JPanel();
-      //  static MyPlayerListener playerButtonListener = new MyPlayerListener();
-        static JFrame playerFrame = new JFrame();
-        static JTable addTable = new JTable(rowData, columnNames);
-        static JTextField input = new JTextField();
-        static JButton addPlayer = new JButton();
-        static JButton startTheGame = new JButton();
-        static JLabel inputText = new JLabel();
-        static JLabel tableText = new JLabel();
-        static JLabel playerCounter = new JLabel();
-        static int resolution = 3;
+        public static String rowData[][] = new String[playersPossible][1];
+        public static String columnNames[] = { "" };
+        public static JPanel playerPanel = new JPanel();
+        public static MyPlayerListener playerButtonListener = new MyPlayerListener();
+        public static JFrame playerFrame = new JFrame();
+        public static JTable addTable = new JTable(rowData, columnNames);
+        public static JTextField input = new JTextField();
+        public static JButton addPlayer = new JButton();
+        public static JButton startTheGame = new JButton();
+        public static JLabel inputText = new JLabel();
+        public static JLabel tableText = new JLabel();
+        public static JLabel playerCounter = new JLabel();
+        public static int resolution = 3;
 
 
         /**
@@ -77,7 +79,7 @@ package com.company.View;
             addPlayer.setBounds(925/resolution, 410/resolution, 200/resolution, 50/resolution);
             addPlayer.setFont(new Font("", Font.CENTER_BASELINE, 30/resolution));
             addPlayer.setText("Lägg till");
-          //  addPlayer.addActionListener(playerButtonListener);
+            addPlayer.addActionListener(playerButtonListener);
             playerPanel.add(addPlayer);
 
             startTheGame.setBounds(325/resolution, 1250/resolution, 800/resolution, 100/resolution);
