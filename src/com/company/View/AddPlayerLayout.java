@@ -9,8 +9,7 @@ package com.company.View;
      */
     public class AddPlayerLayout extends JFrame {
 
-        // Number of player possible (Max 6 players).
-        static int playersPossible = 5;
+        static int playersPossible = 2;
 
         // static String rowData[][] = {{"  Spelare 1:", ""}, {"  Spelare 2:", ""}, {"  Spelare 3:", ""}, {"  Spelare 4:", ""}, {"  Spelare 5:", ""}, {"  Spelare 6:", ""}};
         static String rowData[][] = new String[playersPossible][1];
@@ -42,19 +41,19 @@ package com.company.View;
          * the components into it, and then adds the panel to the Jframe.
          */
         public void createFrame() {
-            // All kod för att skapa och sätta samman ett fönster (dvs ett JFrame)
+            // All kod fÃ¶r att skapa och sÃ¤tta samman ett fÃ¶nster (dvs ett JFrame)
 
 
             playerPanel.setLayout(null);
             playerPanel.setBackground(new Color(22, 103, 0));
-            playerFrame.add(playerPanel); // lägger in mainpanel i Jframe
+            playerFrame.add(playerPanel); // lÃ¤gger in mainpanel i Jframe
 
-            inputText.setText("Namn på spelare:");
+            inputText.setText("Namn pÃ¥ spelare:");
             inputText.setBounds(325, 220, 800, 100);
             inputText.setFont(new Font("", Font.CENTER_BASELINE, 50));
             playerPanel.add(inputText);
 
-            tableText.setText("Namn på tillagda spelare:");
+            tableText.setText("Namn pÃ¥ tillagda spelare:");
             tableText.setBounds(325, 480, 800, 100);
             tableText.setFont(new Font("", Font.CENTER_BASELINE, 50));
             playerPanel.add(tableText);
@@ -64,7 +63,7 @@ package com.company.View;
             playerCounter.setFont(new Font("", Font.CENTER_BASELINE, 30));
             playerPanel.add(playerCounter);
 
-            addTable.setRowHeight(100); // höjd på raderna
+            addTable.setRowHeight(100); // hÃ¶jd pÃ¥ raderna
             addTable.setBounds(325,560,800,100*playersPossible); // possition och storlek
             addTable.setFont(new Font("", Font.CENTER_BASELINE, 30)); // font och storlek
             addTable.setBackground(Color.WHITE); // bakgrund
@@ -78,7 +77,7 @@ package com.company.View;
 
             addPlayer.setBounds(925, 410, 200, 50);
             addPlayer.setFont(new Font("", Font.CENTER_BASELINE, 30));
-            addPlayer.setText("Lägg till");
+            addPlayer.setText("LÃ¤gg till");
           //  addPlayer.addActionListener(playerButtonListener);
             playerPanel.add(addPlayer);
 
@@ -92,7 +91,7 @@ package com.company.View;
             playerFrame.setSize(1450, 1700);
             playerFrame.setTitle("Yatzy");
             playerFrame.setDefaultCloseOperation(playerFrame.DISPOSE_ON_CLOSE);
-            playerFrame.setLocationRelativeTo(null); //Centrerar fönstret mitt på skärmen
+            playerFrame.setLocationRelativeTo(null); //Centrerar fÃ¶nstret mitt pÃ¥ skÃ¤rmen
             playerFrame.setVisible(true);
             playerFrame.setResizable(true);
 
