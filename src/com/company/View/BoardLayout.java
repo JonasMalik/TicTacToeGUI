@@ -28,7 +28,7 @@ public class BoardLayout extends JFrame {
         boardFrame.add(boardPanel); // lägger in mainpanel i Jframe
 
         boardFrame.setSize(1450 / AddPlayerLayout.resolution, 1700 / AddPlayerLayout.resolution);
-        boardFrame.setTitle("Yatzy");
+        boardFrame.setTitle("Tic Tac Toe");
         boardFrame.setDefaultCloseOperation(boardFrame.DISPOSE_ON_CLOSE);
         boardFrame.setLocationRelativeTo(null); //Centrerar fönstret mitt på skärmen
         boardFrame.setVisible(true);
