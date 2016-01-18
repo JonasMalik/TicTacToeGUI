@@ -1,4 +1,5 @@
 package com.company.View;
+import java.awt.Toolkit;
 
     import com.company.Controller.MyPlayerListener;
 
@@ -43,53 +44,56 @@ package com.company.View;
         public void createFrame() {
             // All kod för att skapa och sätta samman ett fönster (dvs ett JFrame)
 
-
-            playerPanel.setLayout(null);
+            Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+//            playerPanel.setLayout(null);
             playerPanel.setBackground(new Color(22, 103, 0));
             playerFrame.add(playerPanel); // lägger in mainpanel i Jframe
 
             inputText.setText("Namn på spelare:");
-            inputText.setBounds(325/resolution, 220/resolution, 800/resolution, 100/resolution);
-            inputText.setFont(new Font("", Font.CENTER_BASELINE, 50/resolution));
+//            inputText.setFont(new Font("", Font.CENTER_BASELINE, 50/resolution));
             playerPanel.add(inputText);
 
             tableText.setText("Namn på tillagda spelare:");
-            tableText.setBounds(325/resolution, 480/resolution, 800/resolution, 100/resolution);
-            tableText.setFont(new Font("", Font.CENTER_BASELINE, 50/resolution));
+//            tableText.setBounds(325/resolution, 480/resolution, 800/resolution, 100/resolution);
+//            tableText.setFont(new Font("", Font.CENTER_BASELINE, 50/resolution));
             playerPanel.add(tableText);
 
             playerCounter.setText("0/"+playersPossible);
-            playerCounter.setBounds(1045/resolution,1130/resolution,100/resolution,100/resolution );
-            playerCounter.setFont(new Font("", Font.CENTER_BASELINE, 30/resolution));
+//            playerCounter.setBounds(1045/resolution,1130/resolution,100/resolution,100/resolution );
+//            playerCounter.setFont(new Font("", Font.CENTER_BASELINE, 30/resolution));
             playerPanel.add(playerCounter);
 
             addTable.setRowHeight(100 / resolution); // höjd på raderna
-            addTable.setBounds(325/resolution,560/resolution,800/resolution,100*playersPossible/resolution); // possition och storlek
-            addTable.setFont(new Font("", Font.CENTER_BASELINE, 30/resolution)); // font och storlek
+//            addTable.setBounds(325/resolution,560/resolution,800/resolution,100*playersPossible/resolution); // possition och storlek
+//            addTable.setFont(new Font("", Font.CENTER_BASELINE, 30/resolution)); // font och storlek
             addTable.setBackground(Color.WHITE); // bakgrund
             addTable.setBorder(BorderFactory.createLineBorder(Color.BLACK,5/resolution)); // HERE
             playerPanel.add(addTable);
 
-            input.setBounds(325/resolution,300/resolution,800/resolution,100/resolution);
-            input.setFont(new Font("", Font.CENTER_BASELINE, 50/resolution));
+//            input.setBounds(325/resolution,300/resolution,800/resolution,100/resolution);
+//            input.setFont(new Font("", Font.CENTER_BASELINE, 50/resolution));
             input.setText("  ");
             playerPanel.add(input);
 
-            addPlayer.setBounds(725/resolution, 410/resolution, 400/resolution, 70/resolution);
+//            addPlayer.setBounds(725/resolution, 410/resolution, 400/resolution, 70/resolution);
+//            addPlayer.setPreferredSize(new Dimension(screen.width / 6, (int) (screen.height * 0.1)));
             addPlayer.setFont(new Font("", Font.CENTER_BASELINE, 30/resolution));
             addPlayer.setText("Lägg till");
             addPlayer.addActionListener(playerButtonListener);
             playerPanel.add(addPlayer);
 
-            startTheGame.setBounds(325/resolution, 1250/resolution, 800/resolution, 100/resolution);
+//            startTheGame.setBounds(325/resolution, 1250/resolution, 800/resolution, 100/resolution);
+            startTheGame.setPreferredSize(new Dimension(screen.width / 6, (int) (screen.height * 0.1)));
             startTheGame.setFont(new Font("", Font.CENTER_BASELINE, 40/resolution));
             startTheGame.setText("Starta spelet!");
             startTheGame.setEnabled(false);
             startTheGame.addActionListener(playerButtonListener);
             playerPanel.add(startTheGame);
 
-            playerFrame.setSize(1450/resolution, 1700/resolution);
-            playerFrame.setTitle("Yatzy");
+//            playerFrame.setSize(1450/resolution, 1700/resolution);
+
+            playerFrame.setPreferredSize(new Dimension(screen.width / 2, (int) (screen.height * 0.9)));
+            playerFrame.setTitle("Tic Tac Toe");
             playerFrame.setDefaultCloseOperation(playerFrame.DISPOSE_ON_CLOSE);
             playerFrame.setLocationRelativeTo(null); //Centrerar fönstret mitt på skärmen
             playerFrame.setVisible(true);
