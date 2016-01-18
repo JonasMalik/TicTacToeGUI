@@ -4,7 +4,8 @@ import java.awt.Toolkit;
     import com.company.Controller.MyPlayerListener;
 
     import javax.swing.*;
-    import java.awt.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
 
     /**
      * This is the class that displays the first layout,
@@ -17,6 +18,7 @@ import java.awt.Toolkit;
         public static String rowData[][] = new String[playersPossible][1];
         public static String columnNames[] = { "" };
         public static JPanel playerPanel = new JPanel();
+        public static JPanel mainPanel = new JPanel();
         public static MyPlayerListener playerButtonListener = new MyPlayerListener();
         public static JFrame playerFrame = new JFrame();
         public static JTable addTable = new JTable(rowData, columnNames);
@@ -44,45 +46,47 @@ import java.awt.Toolkit;
         public void createFrame() {
             // All kod för att skapa och sätta samman ett fönster (dvs ett JFrame)
 
+            mainPanel.setLayout(new BorderLayout());
+
             Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-//            playerPanel.setLayout(null);
+            playerPanel.setLayout(new BoxLayout(playerPanel, BoxLayout.Y_AXIS));
             playerPanel.setBackground(new Color(22, 103, 0));
             playerFrame.add(playerPanel); // lägger in mainpanel i Jframe
 
             inputText.setText("Namn på spelare:");
-//            inputText.setFont(new Font("", Font.CENTER_BASELINE, 50/resolution));
+            inputText.setFont(new Font("", Font.CENTER_BASELINE, 50/resolution));
             playerPanel.add(inputText);
 
-            tableText.setText("Namn på tillagda spelare:");
-//            tableText.setBounds(325/resolution, 480/resolution, 800/resolution, 100/resolution);
-//            tableText.setFont(new Font("", Font.CENTER_BASELINE, 50/resolution));
-            playerPanel.add(tableText);
-
-            playerCounter.setText("0/"+playersPossible);
-//            playerCounter.setBounds(1045/resolution,1130/resolution,100/resolution,100/resolution );
-//            playerCounter.setFont(new Font("", Font.CENTER_BASELINE, 30/resolution));
-            playerPanel.add(playerCounter);
-
-            addTable.setRowHeight(100 / resolution); // höjd på raderna
-//            addTable.setBounds(325/resolution,560/resolution,800/resolution,100*playersPossible/resolution); // possition och storlek
-//            addTable.setFont(new Font("", Font.CENTER_BASELINE, 30/resolution)); // font och storlek
-            addTable.setBackground(Color.WHITE); // bakgrund
-            addTable.setBorder(BorderFactory.createLineBorder(Color.BLACK,5/resolution)); // HERE
-            playerPanel.add(addTable);
-
-//            input.setBounds(325/resolution,300/resolution,800/resolution,100/resolution);
-//            input.setFont(new Font("", Font.CENTER_BASELINE, 50/resolution));
+            input.setFont(new Font("", Font.CENTER_BASELINE, 50/resolution));
             input.setText("  ");
+//            input.setBorder(new EmptyBorder(100, 100,100, 100));
+//            input.setPreferredSize(new Dimension(100,100));
+            input.setBackground(Color.BLUE);
+//            input.setBorder(new EmptyBorder(110, 110, 110, 110));
+//            input.setPreferredSize(new Dimension(screen.width / 6, (int) (screen.height * 0.1)));
+            input.setMaximumSize(new Dimension(100,100));
             playerPanel.add(input);
 
-//            addPlayer.setBounds(725/resolution, 410/resolution, 400/resolution, 70/resolution);
-//            addPlayer.setPreferredSize(new Dimension(screen.width / 6, (int) (screen.height * 0.1)));
+            addPlayer.setPreferredSize(new Dimension(screen.width / 6, (int) (screen.height * 0.1)));
             addPlayer.setFont(new Font("", Font.CENTER_BASELINE, 30/resolution));
             addPlayer.setText("Lägg till");
             addPlayer.addActionListener(playerButtonListener);
             playerPanel.add(addPlayer);
 
-//            startTheGame.setBounds(325/resolution, 1250/resolution, 800/resolution, 100/resolution);
+            tableText.setText("Namn på tillagda spelare:");
+            tableText.setFont(new Font("", Font.CENTER_BASELINE, 50/resolution));
+            playerPanel.add(tableText);
+
+            addTable.setRowHeight(100 / resolution); // höjd på raderna
+            addTable.setFont(new Font("", Font.CENTER_BASELINE, 30/resolution)); // font och storlek
+            addTable.setBackground(Color.WHITE); // bakgrund
+            addTable.setBorder(BorderFactory.createLineBorder(Color.BLACK,5/resolution)); // HERE
+            playerPanel.add(addTable);
+
+            playerCounter.setText("0/"+playersPossible);
+            playerCounter.setFont(new Font("", Font.CENTER_BASELINE, 30/resolution));
+            playerPanel.add(playerCounter);
+
             startTheGame.setPreferredSize(new Dimension(screen.width / 6, (int) (screen.height * 0.1)));
             startTheGame.setFont(new Font("", Font.CENTER_BASELINE, 40/resolution));
             startTheGame.setText("Starta spelet!");
@@ -90,14 +94,24 @@ import java.awt.Toolkit;
             startTheGame.addActionListener(playerButtonListener);
             playerPanel.add(startTheGame);
 
-//            playerFrame.setSize(1450/resolution, 1700/resolution);
+            playerFrame.add(mainPanel);
+            playerPanel.setBackground(Color.red);
+            playerPanel.setOpaque(true);
+
+            mainPanel.setBackground(Color.yellow);
+            mainPanel.setOpaque(true);
+            mainPanel.setBorder(new EmptyBorder(100,100,100,100));
+
+            mainPanel.add(playerPanel);
+
 
             playerFrame.setPreferredSize(new Dimension(screen.width / 2, (int) (screen.height * 0.9)));
             playerFrame.setTitle("Tic Tac Toe");
             playerFrame.setDefaultCloseOperation(playerFrame.DISPOSE_ON_CLOSE);
-            playerFrame.setLocationRelativeTo(null); //Centrerar fönstret mitt på skärmen
             playerFrame.setVisible(true);
             playerFrame.setResizable(true);
+            playerFrame.pack();
+            playerFrame.setLocationRelativeTo(null); //Centrerar fönstret mitt på skärmen
 
         }
 
