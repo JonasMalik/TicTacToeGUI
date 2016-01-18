@@ -85,7 +85,7 @@ public class BoardLayout extends JFrame {
         buttonPanel.setOpaque(false);
         boardFrame.setDefaultCloseOperation(boardFrame.DISPOSE_ON_CLOSE);
     }
-    
+
 
 //    public void createFrame() {
 //        // All kod för att skapa och sätta samman ett fönster (dvs ett JFrame)

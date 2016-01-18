@@ -17,7 +17,6 @@ import java.awt.*;
 
         public static String rowData[][] = new String[playersPossible][1];
         public static String columnNames[] = { "" };
-        public static JPanel playerPanel = new JPanel();
         public static JPanel mainPanel = new JPanel();
         public static MyPlayerListener playerButtonListener = new MyPlayerListener();
         public static JFrame playerFrame = new JFrame();
@@ -49,13 +48,15 @@ import java.awt.*;
             mainPanel.setLayout(new BorderLayout());
 
             Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-            playerPanel.setLayout(new BoxLayout(playerPanel, BoxLayout.Y_AXIS));
-            playerPanel.setBackground(new Color(22, 103, 0));
-            playerFrame.add(playerPanel); // lägger in mainpanel i Jframe
+            mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+
+            mainPanel.setBackground(new Color(22, 103, 0));
+            playerFrame.add(mainPanel); // lägger in mainpanel i Jframe
 
             inputText.setText("Namn på spelare:");
             inputText.setFont(new Font("", Font.CENTER_BASELINE, 50/resolution));
-            playerPanel.add(inputText);
+            mainPanel.add(inputText);
+            inputText.setAlignmentX(Component.CENTER_ALIGNMENT);
 
             input.setFont(new Font("", Font.CENTER_BASELINE, 50/resolution));
             input.setText("  ");
@@ -64,45 +65,47 @@ import java.awt.*;
             input.setBackground(Color.BLUE);
 //            input.setBorder(new EmptyBorder(110, 110, 110, 110));
 //            input.setPreferredSize(new Dimension(screen.width / 6, (int) (screen.height * 0.1)));
-            input.setMaximumSize(new Dimension(100,100));
-            playerPanel.add(input);
+//            input.setMaximumSize(new Dimension(100,100));
+            input.setMargin(new Insets(10, 0, 0, 0));
+            mainPanel.add(input);
+
+            input.setAlignmentX(Component.CENTER_ALIGNMENT);
 
             addPlayer.setPreferredSize(new Dimension(screen.width / 6, (int) (screen.height * 0.1)));
             addPlayer.setFont(new Font("", Font.CENTER_BASELINE, 30/resolution));
+            addPlayer.setAlignmentX(Component.CENTER_ALIGNMENT);
             addPlayer.setText("Lägg till");
             addPlayer.addActionListener(playerButtonListener);
-            playerPanel.add(addPlayer);
+            mainPanel.add(addPlayer);
 
             tableText.setText("Namn på tillagda spelare:");
             tableText.setFont(new Font("", Font.CENTER_BASELINE, 50/resolution));
-            playerPanel.add(tableText);
+            mainPanel.add(tableText);
 
             addTable.setRowHeight(100 / resolution); // höjd på raderna
             addTable.setFont(new Font("", Font.CENTER_BASELINE, 30/resolution)); // font och storlek
             addTable.setBackground(Color.WHITE); // bakgrund
             addTable.setBorder(BorderFactory.createLineBorder(Color.BLACK,5/resolution)); // HERE
-            playerPanel.add(addTable);
+            mainPanel.add(addTable);
 
             playerCounter.setText("0/"+playersPossible);
             playerCounter.setFont(new Font("", Font.CENTER_BASELINE, 30/resolution));
-            playerPanel.add(playerCounter);
+            mainPanel.add(playerCounter);
 
             startTheGame.setPreferredSize(new Dimension(screen.width / 6, (int) (screen.height * 0.1)));
             startTheGame.setFont(new Font("", Font.CENTER_BASELINE, 40/resolution));
             startTheGame.setText("Starta spelet!");
             startTheGame.setEnabled(false);
             startTheGame.addActionListener(playerButtonListener);
-            playerPanel.add(startTheGame);
+            mainPanel.add(startTheGame);
 
             playerFrame.add(mainPanel);
-            playerPanel.setBackground(Color.red);
-            playerPanel.setOpaque(true);
+            mainPanel.setBackground(Color.red);
+            mainPanel.setOpaque(true);
 
             mainPanel.setBackground(Color.yellow);
             mainPanel.setOpaque(true);
             mainPanel.setBorder(new EmptyBorder(100,100,100,100));
-
-            mainPanel.add(playerPanel);
 
             playerFrame.setPreferredSize(new Dimension(screen.width / 2, (int) (screen.height * 0.9)));
             playerFrame.setSize(1450/resolution, 1700/resolution);
