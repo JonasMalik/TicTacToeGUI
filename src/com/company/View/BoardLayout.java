@@ -14,11 +14,15 @@ import javax.swing.*;
 import javax.swing.BoxLayout;
 import javax.swing.border.EmptyBorder;
 
+import java.util.Observable;
+import java.util.Observer;
+
+
 /**
  * This class displays the game board.
  */
 
-public class BoardLayout extends JFrame {
+public class BoardLayout extends JFrame implements Observer {
 
     private JFrame boardFrame;
     private JPanel mainPanel, statusPanel, buttonPanel;
@@ -94,19 +98,17 @@ public class BoardLayout extends JFrame {
         boardFrame.setDefaultCloseOperation(boardFrame.DISPOSE_ON_CLOSE);
     }
 
+    @Override
+    public void update(Observable o, Object arg) {
+        // Hämta den observerade tärningen
+//        Dice theObservedDice = (Dice) o;
+//        int theObservedDiceValue = theObservedDice.getValue();
 
-//    public void createFrame() {
-//        // All kod för att skapa och sätta samman ett fönster (dvs ett JFrame)
-//
-//        boardPanel.setLayout(null);
-//        boardPanel.setBackground(new Color(22, 103, 0));
-//        boardFrame.add(boardPanel); // lägger in mainpanel i Jframe
-//
-//        boardFrame.setSize(1450 / AddPlayerLayout.resolution, 1700 / AddPlayerLayout.resolution);
-//        boardFrame.setTitle("Tic Tac Toe");
-//        boardFrame.setDefaultCloseOperation(boardFrame.DISPOSE_ON_CLOSE);
-//        boardFrame.setLocationRelativeTo(null); //Centrerar fönstret mitt på skärmen
-//        boardFrame.setVisible(true);
-//        boardFrame.setResizable(true);
-//    }
+        // Ändra bild baserat på observerad tärning
+//        changeImage(theObservedDiceValue);
+
+        // Gör ovan med en rad istället
+        // int result = ((Dice)o).getValue();
+
+    }
 }
