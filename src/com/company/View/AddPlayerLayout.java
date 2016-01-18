@@ -89,14 +89,12 @@ package com.company.View;
             playerPanel.add(startTheGame);
 
             playerFrame.setSize(1450/resolution, 1700/resolution);
-            playerFrame.setTitle("Yatzy");
+            playerFrame.setTitle("Tic Tac Toe");
             playerFrame.setDefaultCloseOperation(playerFrame.DISPOSE_ON_CLOSE);
             playerFrame.setLocationRelativeTo(null); //Centrerar fönstret mitt på skärmen
             playerFrame.setVisible(true);
             playerFrame.setResizable(true);
-
         }
-
     }
 
 
