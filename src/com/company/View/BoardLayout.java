@@ -33,11 +33,18 @@ public class BoardLayout extends JFrame {
 
         boardFrame = new JFrame("Tic Tac Toe");
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+
         boardFrame.setPreferredSize(new Dimension(screen.width / 2, (int) (screen.height * 0.9)));
         boardFrame.pack();
         boardFrame.setLocationRelativeTo(null);
         boardFrame.setVisible(true);
         boardFrame.setResizable(false);
+
+        boardFrame.setPreferredSize(new Dimension(screen.width / 3, (int) (screen.height * 0.8)));
+        boardFrame.pack();
+        boardFrame.setLocationRelativeTo(null);
+        boardFrame.setVisible(true);
+        boardFrame.setResizable(true);
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
@@ -73,11 +80,12 @@ public class BoardLayout extends JFrame {
             buttons[i].setForeground (Color.white);
             i++;
         }
-
+        
         buttonPanel.setBorder(new EmptyBorder(20, 20, 20, 20));
         buttonPanel.setOpaque(false);
         boardFrame.setDefaultCloseOperation(boardFrame.DISPOSE_ON_CLOSE);
     }
+    
 
 //    public void createFrame() {
 //        // All kod för att skapa och sätta samman ett fönster (dvs ett JFrame)

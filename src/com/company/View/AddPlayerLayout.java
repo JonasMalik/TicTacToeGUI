@@ -104,17 +104,15 @@ import java.awt.*;
 
             mainPanel.add(playerPanel);
 
-
             playerFrame.setPreferredSize(new Dimension(screen.width / 2, (int) (screen.height * 0.9)));
+            playerFrame.setSize(1450/resolution, 1700/resolution);
             playerFrame.setTitle("Tic Tac Toe");
             playerFrame.setDefaultCloseOperation(playerFrame.DISPOSE_ON_CLOSE);
             playerFrame.setVisible(true);
             playerFrame.setResizable(true);
             playerFrame.pack();
             playerFrame.setLocationRelativeTo(null); //Centrerar fönstret mitt på skärmen
-
         }
-
     }
 
 
