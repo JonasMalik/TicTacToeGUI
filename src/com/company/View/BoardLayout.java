@@ -1,8 +1,14 @@
 package com.company.View;
 
+import com.company.Controller.MyBoardListener;
+import com.company.Controller.MyPlayerListener;
+import com.company.Model.*;
+import com.company.Model.Button;
+
 import java.awt.*;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 
 import javax.swing.*;
 import javax.swing.BoxLayout;
@@ -16,9 +22,11 @@ public class BoardLayout extends JFrame {
 
     private JFrame boardFrame;
     private JPanel mainPanel, statusPanel, buttonPanel;
-    private JButton buttons[];
+    public static ArrayList<Button> buttons = new ArrayList<>();
     private JLabel currentPlayerLabel;
     private JLabel currentPlayer;
+    private MyBoardListener boardListener = new MyBoardListener();
+
 
     public BoardLayout() {
         super();
@@ -69,15 +77,15 @@ public class BoardLayout extends JFrame {
         buttonPanel.setLayout(new GridLayout(0, 3));
         GridBagConstraints c = new GridBagConstraints();
         mainPanel.add(buttonPanel);
-        buttons = new JButton[9];
 
         int i = 0;
         while (i < 9) {
-            buttons[i] = new JButton(String.valueOf(i + 1));
-            buttonPanel.add(buttons[i], c);
-            buttons[i].setBackground(new Color(22, 103, 0));
-            buttons[i].setOpaque(true);
-            buttons[i].setForeground (Color.white);
+            buttons.add(new Button());
+            buttonPanel.add(buttons.get(i).getBoardButton(), c);
+            buttons.get(i).getBoardButton().setBackground(new Color(22, 103, 0));
+            buttons.get(i).getBoardButton().setOpaque(true);
+            buttons.get(i).getBoardButton().setForeground(Color.white);
+            buttons.get(i).getBoardButton().addActionListener(boardListener);
             i++;
         }
         
