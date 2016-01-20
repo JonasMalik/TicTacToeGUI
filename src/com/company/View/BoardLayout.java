@@ -17,20 +17,17 @@ import javax.swing.border.EmptyBorder;
 import java.util.Observable;
 import java.util.Observer;
 
-
 /**
  * This class displays the game board.
  */
-
 public class BoardLayout extends JFrame implements Observer {
-
     private JFrame boardFrame;
     private JPanel mainPanel, statusPanel, buttonPanel;
     public static ArrayList<Button> buttons = new ArrayList<>();
     private JLabel currentPlayerLabel;
     private JLabel currentPlayer;
     private MyBoardListener boardListener = new MyBoardListener();
-    JButton jb;
+    private JButton jb;
 
     public BoardLayout() {
         super();
@@ -69,9 +66,9 @@ public class BoardLayout extends JFrame implements Observer {
         statusPanel.setOpaque(false);
 
         statusPanel.add(currentPlayerLabel = new JLabel("Current player: "));
-        currentPlayerLabel.setForeground (Color.white);
+        currentPlayerLabel.setForeground(Color.white);
         statusPanel.add(currentPlayer = new JLabel("Display current player's name here"));
-        currentPlayer.setForeground (Color.white);
+        currentPlayer.setForeground(Color.white);
         statusPanel.setLayout(new BoxLayout(statusPanel, BoxLayout.Y_AXIS));
         statusPanel.setAlignmentX(CENTER_ALIGNMENT);
         statusPanel.setBorder(new EmptyBorder(20, 20, 0, 20));
@@ -94,22 +91,14 @@ public class BoardLayout extends JFrame implements Observer {
             jb.addActionListener(boardListener);
             i++;
         }
-        
+
         buttonPanel.setBorder(new EmptyBorder(20, 20, 20, 20));
         buttonPanel.setOpaque(false);
         boardFrame.setDefaultCloseOperation(boardFrame.DISPOSE_ON_CLOSE);
     }
 
     @Override
-    public void update(Observable arg0, Object arg1) {
-        System.out.println("Updated: " + arg1);
-        jb.setText("Updated");
+    public void update(Observable o, Object jb) {
+        ((JButton) jb).setText("updated");
     }
-
-        // Ändra bild baserat på observerad tärning
-//        changeImage(theObservedDiceValue);
-
-        // Gör ovan med en rad istället
-        // int result = ((Dice)o).getValue();
-
 }
