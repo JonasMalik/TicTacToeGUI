@@ -30,10 +30,11 @@ public class BoardLayout extends JFrame implements Observer {
     private JLabel currentPlayerLabel;
     private JLabel currentPlayer;
     private MyBoardListener boardListener = new MyBoardListener();
-
+    JButton jb;
 
     public BoardLayout() {
         super();
+        boardListener.addObserver(this);
         createFrame();
     }
 
@@ -85,11 +86,12 @@ public class BoardLayout extends JFrame implements Observer {
         int i = 0;
         while (i < 9) {
             buttons.add(new Button());
-            buttonPanel.add(buttons.get(i).getBoardButton(), c);
-            buttons.get(i).getBoardButton().setBackground(new Color(22, 103, 0));
-            buttons.get(i).getBoardButton().setOpaque(true);
-            buttons.get(i).getBoardButton().setForeground(Color.white);
-            buttons.get(i).getBoardButton().addActionListener(boardListener);
+            jb = buttons.get(i).getBoardButton();
+            buttonPanel.add(jb, c);
+            jb.setBackground(new Color(22, 103, 0));
+            jb.setOpaque(true);
+            jb.setForeground(Color.white);
+            jb.addActionListener(boardListener);
             i++;
         }
         
@@ -99,10 +101,10 @@ public class BoardLayout extends JFrame implements Observer {
     }
 
     @Override
-    public void update(Observable o, Object arg) {
-        // Hämta den observerade tärningen
-//        Dice theObservedDice = (Dice) o;
-//        int theObservedDiceValue = theObservedDice.getValue();
+    public void update(Observable arg0, Object arg1) {
+        System.out.println("Updated: " + arg1);
+        jb.setText("Updated");
+    }
 
         // Ändra bild baserat på observerad tärning
 //        changeImage(theObservedDiceValue);
@@ -110,5 +112,4 @@ public class BoardLayout extends JFrame implements Observer {
         // Gör ovan med en rad istället
         // int result = ((Dice)o).getValue();
 
-    }
 }
