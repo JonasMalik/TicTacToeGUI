@@ -103,9 +103,11 @@ public class BoardLayout extends JFrame implements Observer {
 
         int newIndex = (Integer)index;
         System.out.println(index);
-
-        System.out.println(buttons.get(newIndex).checkIsTaken());
-        buttons.get(newIndex).setIsTaken(true);
+        try {
+            buttons.get(newIndex).setIsTaken();
+        }catch (Exception e){
+            System.out.println("redan tagen");
+        }
 
         //if (!((MyJButton) jb).checkIsTaken())
          //   ((MyJButton) jb).setText("updated");
