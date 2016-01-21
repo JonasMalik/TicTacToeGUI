@@ -1,5 +1,6 @@
 package com.company.Controller;
 
+import com.company.Model.MyJButton;
 import com.company.View.AddPlayerLayout;
 import com.company.View.BoardLayout;
 
@@ -16,8 +17,9 @@ public class MyBoardListener extends Observable implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        JButton jb = (JButton) e.getSource();
+        System.out.println("clicked!!!");
+//        MyJButton jb = (MyJButton) e.getSource(); // get the button clicked
         setChanged();
-        notifyObservers(jb);
+        notifyObservers();
     }
 }

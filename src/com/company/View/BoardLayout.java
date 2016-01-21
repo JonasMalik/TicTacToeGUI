@@ -3,7 +3,6 @@ package com.company.View;
 import com.company.Controller.MyBoardListener;
 import com.company.Controller.MyPlayerListener;
 import com.company.Model.*;
-import com.company.Model.Button;
 
 import java.awt.*;
 import java.awt.Dimension;
@@ -23,15 +22,14 @@ import java.util.Observer;
 public class BoardLayout extends JFrame implements Observer {
     private JFrame boardFrame;
     private JPanel mainPanel, statusPanel, buttonPanel;
-    public static ArrayList<Button> buttons = new ArrayList<>();
+    public static ArrayList<MyJButton> buttons = new ArrayList<>();
     private JLabel currentPlayerLabel;
     private JLabel currentPlayer;
-    private MyBoardListener boardListener = new MyBoardListener();
+    private MyBoardListener boardListener;
     private JButton jb;
 
     public BoardLayout() {
         super();
-        boardListener.addObserver(this);
         createFrame();
     }
 
@@ -82,8 +80,8 @@ public class BoardLayout extends JFrame implements Observer {
 
         int i = 0;
         while (i < 9) {
-            buttons.add(new Button());
-            jb = buttons.get(i).getBoardButton();
+            buttons.add(new MyJButton());
+            jb = buttons.get(i);
             buttonPanel.add(jb, c);
             jb.setBackground(new Color(22, 103, 0));
             jb.setOpaque(true);
@@ -97,8 +95,12 @@ public class BoardLayout extends JFrame implements Observer {
         boardFrame.setDefaultCloseOperation(boardFrame.DISPOSE_ON_CLOSE);
     }
 
+
+
     @Override
     public void update(Observable o, Object jb) {
-        ((JButton) jb).setText("updated");
+        System.out.println("updated!!!!");
+        if (!((MyJButton) jb).checkIsTaken())
+            ((MyJButton) jb).setText("updated");
     }
 }
