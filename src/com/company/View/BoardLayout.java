@@ -99,8 +99,14 @@ public class BoardLayout extends JFrame implements Observer {
 
 
     @Override
-    public void update(Observable o, Object jb) {
-        System.out.println("updated!!!!");
+    public void update(Observable o, Object index) {
+
+        int newIndex = (Integer)index;
+        System.out.println(index);
+
+        System.out.println(buttons.get(newIndex).checkIsTaken());
+        buttons.get(newIndex).setIsTaken(true);
+
         //if (!((MyJButton) jb).checkIsTaken())
          //   ((MyJButton) jb).setText("updated");
     }

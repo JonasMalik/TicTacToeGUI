@@ -13,6 +13,10 @@ import java.util.Observable;
 public class MyJButton extends JButton {
     boolean isTaken;
 
+    public void setIsTaken(boolean isTaken) {
+        this.isTaken = isTaken;
+    }
+
     public MyJButton() {
         isTaken = false;
     }

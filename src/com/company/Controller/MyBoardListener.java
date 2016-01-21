@@ -21,7 +21,12 @@ public class MyBoardListener extends Observable implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource() == BoardLayout.buttons.get(1)){
+        int index = BoardLayout.buttons.indexOf( e.getSource() );
+        myObservable.setChanged();
+        myObservable.notifyObservers(index);
+
+
+        /*if (e.getSource() == BoardLayout.buttons.get(1)){
             System.out.println("funkar");
             myObservable.setChanged();
             myObservable.notifyObservers();
@@ -38,6 +43,7 @@ public class MyBoardListener extends Observable implements ActionListener {
             System.out.println(indx);
 
         }
-
+*/
     }
+
 }
