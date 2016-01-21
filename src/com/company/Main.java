@@ -6,13 +6,15 @@ import com.company.View.BoardLayout;
 
 import javax.swing.*;
 
-public class Main {
+public class Main extends MyBoardListener {
 
     public static void main(String[] args) {
 
         //new AddPlayerLayout();
         BoardLayout bl = new BoardLayout(); // observer
-        MyBoardListener boardListener = new MyBoardListener(); // observable
-        boardListener.addObserver(bl);
+        MyBoardListener.myObservable.addObserver(bl);
+
+      //  new MyBoardListener(); // observable
+        //boardListener.addObserver(bl);
     }
 }

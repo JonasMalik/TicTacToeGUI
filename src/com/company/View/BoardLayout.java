@@ -3,6 +3,7 @@ package com.company.View;
 import com.company.Controller.MyBoardListener;
 import com.company.Controller.MyPlayerListener;
 import com.company.Model.*;
+import com.company.*;
 
 import java.awt.*;
 import java.awt.Dimension;
@@ -25,7 +26,7 @@ public class BoardLayout extends JFrame implements Observer {
     public static ArrayList<MyJButton> buttons = new ArrayList<>();
     private JLabel currentPlayerLabel;
     private JLabel currentPlayer;
-    private MyBoardListener boardListener;
+    private static MyBoardListener boardListener = new MyBoardListener();
     private JButton jb;
 
     public BoardLayout() {
@@ -100,7 +101,7 @@ public class BoardLayout extends JFrame implements Observer {
     @Override
     public void update(Observable o, Object jb) {
         System.out.println("updated!!!!");
-        if (!((MyJButton) jb).checkIsTaken())
-            ((MyJButton) jb).setText("updated");
+        //if (!((MyJButton) jb).checkIsTaken())
+         //   ((MyJButton) jb).setText("updated");
     }
 }
