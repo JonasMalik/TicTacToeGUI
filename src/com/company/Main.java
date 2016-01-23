@@ -11,8 +11,8 @@ public class Main extends MyBoardListener {
     public static void main(String[] args) {
 
         //new AddPlayerLayout();
-        BoardLayout bl = new BoardLayout(); // observer
-        MyBoardListener.myObservable.addObserver(bl);
+
+        MyBoardListener.myObservable.addObserver(BoardLayout.getInstance()); // observer
 
       //  new MyBoardListener(); // observable
         //boardListener.addObserver(bl);

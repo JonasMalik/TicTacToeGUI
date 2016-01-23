@@ -22,9 +22,10 @@ public class MyPlayerListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == AddPlayerLayout.startTheGame) {
-            new BoardLayout();
-            AddPlayerLayout.playerFrame.dispose();
+//            new BoardLayout();
+            BoardLayout bl = BoardLayout.getInstance(); // singleton
 
+            AddPlayerLayout.playerFrame.dispose();
            // CreatePlayer.CreatingPlayers(6);
         }
 

@@ -28,10 +28,15 @@ public class BoardLayout extends JFrame implements Observer {
     private JLabel currentPlayer;
     private static MyBoardListener boardListener = new MyBoardListener();
     private JButton jb;
+    private static BoardLayout instance = new BoardLayout(); // Singleton. Create and initiate instance here
 
-    public BoardLayout() {
+    private BoardLayout() { // Cannot access the constructor from outside. Prevents multiple-object creation.
         super();
         createFrame();
+    }
+
+    public static BoardLayout getInstance() { // Singleton. Returns always the same instance
+        return instance;
     }
 
     /**
