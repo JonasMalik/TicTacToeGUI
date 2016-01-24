@@ -45,10 +45,6 @@ public class BoardLayout extends JFrame implements Observer {
 
     public void createFrame() {
 
-        // enum test
-        System.out.println("Circle : " + Mark.CIRCLE.getSymbol());
-        System.out.println("Cross : " + Mark.CROSS.getSymbol());
-
         boardFrame = new JFrame("Tic Tac Toe");
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 
