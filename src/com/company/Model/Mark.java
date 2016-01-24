@@ -7,11 +7,12 @@ public enum  Mark {
     CIRCLE ("O"),
     CROSS ("X");
 
-    private String symbol;
+    private final String symbol;
 
     public String getSymbol(){
         return symbol;
     }
+
     Mark(String symbol) {
         this.symbol = symbol;
     }
