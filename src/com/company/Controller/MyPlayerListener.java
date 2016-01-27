@@ -1,6 +1,6 @@
 package com.company.Controller;
 
-import com.company.Model.CreatePlayer;
+import com.company.Model.GameEngine;
 import com.company.View.AddPlayerLayout;
 import com.company.View.BoardLayout;
 
@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
  * Class is used to handle all buttons of the Class named
  * AddPlayerLayout.
  */
-public class MyPlayerListener extends CreatePlayer implements ActionListener {
+public class MyPlayerListener extends GameEngine implements ActionListener {
 
     static int i = 0;
 

@@ -29,11 +29,11 @@ public class BoardLayout extends JFrame implements Observer {
     private static MyBoardListener boardListener = new MyBoardListener();
     private JButton jb;
     private static BoardLayout instance = new BoardLayout(); // Singleton. Create and initiate instance here
+    GameEngine gameEngine = new GameEngine();
 
     private BoardLayout() { // Cannot access the constructor from outside. Prevents multiple-object creation.
         super();
         createFrame();
-        GameEngine gameEngine = new GameEngine();
     }
 
     public static BoardLayout getInstance() { // Singleton. Returns always the same instance
@@ -111,8 +111,7 @@ public class BoardLayout extends JFrame implements Observer {
         System.out.println(index);
         try {
             buttons.get(newIndex).setIsTaken();
-            GameEngine.getText();
-
+            gameEngine.Play(newIndex);
         } catch (Exception e){
             System.out.println("redan tagen");
         }
