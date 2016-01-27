@@ -25,11 +25,12 @@ public class BoardLayout extends JFrame implements Observer {
     private JPanel mainPanel, statusPanel, buttonPanel;
     public static ArrayList<MyJButton> buttons = new ArrayList<>();
     private JLabel currentPlayerLabel;
-    private JLabel currentPlayer;
+    public static JLabel currentPlayer;
     private static MyBoardListener boardListener = new MyBoardListener();
     private JButton jb;
     private static BoardLayout instance = new BoardLayout(); // Singleton. Create and initiate instance here
     GameEngine gameEngine = new GameEngine();
+
 
     private BoardLayout() { // Cannot access the constructor from outside. Prevents multiple-object creation.
         super();
@@ -55,11 +56,11 @@ public class BoardLayout extends JFrame implements Observer {
         boardFrame.setVisible(true);
         boardFrame.setResizable(false);
 
-        boardFrame.setPreferredSize(new Dimension(screen.width / 2, (int) (screen.height * 0.8)));
+        boardFrame.setPreferredSize(new Dimension(screen.width / 2, (int) (screen.height * 0.85)));
         boardFrame.pack();
         boardFrame.setLocationRelativeTo(null);
         boardFrame.setVisible(true);
-        boardFrame.setResizable(true);
+        boardFrame.setResizable(false);
 
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
@@ -70,10 +71,12 @@ public class BoardLayout extends JFrame implements Observer {
         statusPanel = new JPanel();
         statusPanel.setOpaque(false);
 
-        statusPanel.add(currentPlayerLabel = new JLabel("Current player: "));
+        statusPanel.add(currentPlayerLabel = new JLabel("Nuvarande spelare: "));
         currentPlayerLabel.setForeground(Color.white);
-        statusPanel.add(currentPlayer = new JLabel("Display current player's name here"));
-        currentPlayer.setForeground(Color.white);
+        currentPlayerLabel.setFont(new Font("", Font.CENTER_BASELINE, screen.width/70));
+        statusPanel.add(currentPlayer = new JLabel(AddPlayerLayout.rowData[0][0]));
+        currentPlayer.setForeground(Color.BLACK);
+        currentPlayer.setFont(new Font("", Font.CENTER_BASELINE, screen.width/60));
         statusPanel.setLayout(new BoxLayout(statusPanel, BoxLayout.Y_AXIS));
         statusPanel.setAlignmentX(CENTER_ALIGNMENT);
         statusPanel.setBorder(new EmptyBorder(20, 20, 0, 20));
@@ -93,6 +96,8 @@ public class BoardLayout extends JFrame implements Observer {
             jb.setBackground(new Color(22, 103, 0));
             jb.setOpaque(true);
             jb.setForeground(Color.white);
+            jb.setFont(new Font("", Font.CENTER_BASELINE, screen.width/10));
+            jb.setFocusable(false);
             jb.addActionListener(boardListener);
             i++;
         }
@@ -110,9 +115,10 @@ public class BoardLayout extends JFrame implements Observer {
         int newIndex = (Integer)index;
         System.out.println(index);
         try {
-            gameEngine.Play(newIndex);
             buttons.get(newIndex).setIsTaken();
+            gameEngine.Play(newIndex);
         } catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Upptagen!\nVar god försök igen!","",JOptionPane.WARNING_MESSAGE);
             System.out.println("redan tagen");
         }
 

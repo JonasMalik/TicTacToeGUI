@@ -25,14 +25,5 @@ public class MyJButton extends JButton {
             throw new Exception();
         }
     }
-    public boolean getIsTaken() {
-        return isTaken;
-    }
 
-
-
-
-    public boolean checkIsTaken() {
-        return isTaken;
-    }
 }

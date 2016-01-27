@@ -30,7 +30,7 @@ import java.awt.*;
         public static JLabel playerCounter = new JLabel();
         public static int resolution = 2;
         public static int frameWidth = screen.width / 2;
-        public static int frameheight = (int) (screen.height* 0.8);
+        public static int frameheight = (int) (screen.height* 0.85);
 
         /**
          * This method call a constructor from the super class and
