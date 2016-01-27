@@ -65,7 +65,7 @@ import java.awt.*;
             input.setBounds((int) (frameWidth * 0.1), (int) (frameheight * 0.1), (int) (frameWidth * 0.78), (int) (frameheight * 0.1));
             input.setText("");
             input.setBackground(Color.WHITE);
-            input.setMargin(new Insets(35,50,35,50));
+            input.setMargin(new Insets(0, 0, 0, 0));
             mainPanel.add(input, BorderLayout.PAGE_START);
             input.setAlignmentX(Component.CENTER_ALIGNMENT);
 
