@@ -110,7 +110,7 @@ public class BoardLayout extends JFrame implements Observer {
         int newIndex = (Integer)index;
         System.out.println(index);
         try {
-//            buttons.get(newIndex).setIsTaken();
+            buttons.get(newIndex).setIsTaken();
             gameEngine.Play(newIndex);
         } catch (Exception e){
             System.out.println("redan tagen");

@@ -47,9 +47,9 @@ public class GameEngine {
     }
 
     public void setText(int myI) {
-
-        BoardLayout.buttons.get(myI).setText(playerList.get(togglePlayer()).getPiece());
-
+        int player = togglePlayer();
+        BoardLayout.buttons.get(myI).setText(playerList.get(player).getPiece());
+        cells[myI] = playerList.get(player).getPiece();
     }
 
 }
