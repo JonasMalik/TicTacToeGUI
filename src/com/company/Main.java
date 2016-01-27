@@ -13,5 +13,6 @@ public class Main extends MyBoardListener {
 
     public static void main(String[] args) {
         new AddPlayerLayout();
+       // MyBoardListener.myObservable.addObserver(BoardLayout.getInstance());
     }
 }

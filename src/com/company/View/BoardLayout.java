@@ -54,7 +54,7 @@ public class BoardLayout extends JFrame implements Observer {
         boardFrame.setVisible(true);
         boardFrame.setResizable(false);
 
-        boardFrame.setPreferredSize(new Dimension(screen.width / 3, (int) (screen.height * 0.8)));
+        boardFrame.setPreferredSize(new Dimension(screen.width / 2, (int) (screen.height * 0.8)));
         boardFrame.pack();
         boardFrame.setLocationRelativeTo(null);
         boardFrame.setVisible(true);
