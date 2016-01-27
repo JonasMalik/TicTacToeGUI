@@ -14,6 +14,7 @@ public class GameEngine {
     Player currentPlayer;
     private String[] cells = new String[9];
     private ArrayList<Player> playerList = new ArrayList<>();
+    int i = 0;
 
     public void CreatingPlayer(){
         int i = 0;
@@ -33,15 +34,23 @@ public class GameEngine {
     }
 
     public void Play(int i) {
-        BoardLayout.buttons.get(i).setText("X");
+        togglePlayer();
+        setText(i);
 
     }
 
-    public Player getCurrentPlayer(){
+    public int togglePlayer() {
+        if (i == 0)
+            i = 1;
+        else
+            i = 0;
 
-        int i = 0;
-        playerList.get(i).getPiece();
-        return currentPlayer;
+        return i;
+    }
+
+    public void setText(int i) {
+        if (BoardLayout.buttons.get(i).getText().isEmpty())
+            BoardLayout.buttons.get(i).setText(playerList.get(togglePlayer()).getPiece());
     }
 
 }
