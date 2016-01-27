@@ -11,10 +11,9 @@ import java.util.ArrayList;
  */
 public class GameEngine {
 
-    Player currentPlayer;
+    int currentPlayer = 0;
     private String[] cells = new String[9];
-    private ArrayList<Player> playerList = new ArrayList<>();
-    int i = 0;
+    private static ArrayList<Player> playerList = new ArrayList<>();
 
     public void CreatingPlayer(){
         int i = 0;
@@ -33,24 +32,24 @@ public class GameEngine {
         System.out.println(playerList.get(1).getPiece());
     }
 
-    public void Play(int i) {
-        togglePlayer();
-        setText(i);
-
+    public void Play(int myIndex) {
+        setText(myIndex);
     }
 
     public int togglePlayer() {
-        if (i == 0)
-            i = 1;
-        else
-            i = 0;
-
-        return i;
+        if (currentPlayer == 0){
+            currentPlayer = 1;
+        }
+        else {
+            currentPlayer = 0;
+        }
+        return currentPlayer;
     }
 
-    public void setText(int i) {
-        if (BoardLayout.buttons.get(i).getText().isEmpty())
-            BoardLayout.buttons.get(i).setText(playerList.get(togglePlayer()).getPiece());
+    public void setText(int myI) {
+
+        BoardLayout.buttons.get(myI).setText(playerList.get(togglePlayer()).getPiece());
+
     }
 
 }
