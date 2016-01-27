@@ -14,6 +14,7 @@ public class GameEngine {
     int currentPlayer = 0;
     private String[] cells = new String[9];
     private static ArrayList<Player> playerList = new ArrayList<>();
+    private boolean win = false;
 
     public void CreatingPlayer(){
         int i = 0;
@@ -34,6 +35,8 @@ public class GameEngine {
 
     public void Play(int myIndex) {
         setText(myIndex);
+        CheckHorizontal();
+        System.out.println(win);
     }
 
     public int togglePlayer() {
@@ -50,6 +53,22 @@ public class GameEngine {
         int player = togglePlayer();
         BoardLayout.buttons.get(myI).setText(playerList.get(player).getPiece());
         cells[myI] = playerList.get(player).getPiece();
+    }
+
+    public boolean CheckHorizontal(){
+
+        if
+        if (cells[0].equals(cells[1]) && cells[1].equals(cells[2])) {
+            win = true;
+        }
+        else if (cells[3].equals(cells[4]) && cells[4].equals(cells[5])) {
+            win = true;
+        }
+        else if (cells[6].equals(cells[7]) && cells[7].equals(cells[8])) {
+            win = true;
+        }
+
+        return win;
     }
 
 }
