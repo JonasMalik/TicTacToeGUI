@@ -119,7 +119,7 @@ public class GameEngine {
                 break;
             }
             if (BoardLayout.buttons.get(2).getText().equals(playerList.get(i).getPiece()) &&
-                    BoardLayout.buttons.get(7).getText().equals(playerList.get(i).getPiece()) &&
+                    BoardLayout.buttons.get(5).getText().equals(playerList.get(i).getPiece()) &&
                     BoardLayout.buttons.get(8).getText().equals(playerList.get(i).getPiece())) {
                 win = true;
                 p1OrP2 = i;
@@ -197,7 +197,8 @@ public class GameEngine {
     }
 
     public void Reset(){
-        for (int i = 0; i<9;i++){
+        System.exit(0);
+        /*for (int i = 0; i<9;i++){
             BoardLayout.buttons.get(i).isTaken = false;
             BoardLayout.buttons.get(i).setText(null);
             cells[i] = null;
@@ -207,7 +208,7 @@ public class GameEngine {
         currentPlayer = 1;
         win = false;
         tie = false;
-
+*/
     }
 
 }
