@@ -1,9 +1,7 @@
 package com.company.View;
 
 import com.company.Controller.MyBoardListener;
-import com.company.Controller.MyPlayerListener;
 import com.company.Model.*;
-import com.company.*;
 
 import java.awt.*;
 import java.awt.Dimension;
@@ -116,7 +114,7 @@ public class BoardLayout extends JFrame implements Observer {
         System.out.println(index);
         try {
             buttons.get(newIndex).setIsTaken();
-            gameEngine.Play(newIndex);
+            gameEngine.play(newIndex);
         } catch (Exception e){
             JOptionPane.showMessageDialog(null,"Upptagen!\nVar god försök igen!","",JOptionPane.WARNING_MESSAGE);
             System.out.println("redan tagen");

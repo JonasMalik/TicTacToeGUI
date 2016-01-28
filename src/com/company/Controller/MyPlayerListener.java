@@ -26,7 +26,7 @@ public class MyPlayerListener extends GameEngine implements ActionListener {
             //BoardLayout bl = BoardLayout.getInstance(); // singleton
             MyBoardListener.myObservable.addObserver(BoardLayout.getInstance());
             AddPlayerLayout.playerFrame.dispose();
-            CreatingPlayer();
+            creatingPlayer();
         }
 
         if (e.getSource() == AddPlayerLayout.addPlayer) {

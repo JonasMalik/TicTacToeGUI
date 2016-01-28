@@ -5,7 +5,6 @@ import com.company.View.AddPlayerLayout;
 import com.company.View.BoardLayout;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -22,7 +21,7 @@ public class GameEngine {
 
 
 
-    public void CreatingPlayer(){
+    public void creatingPlayer(){
         int i = 0;
         String playerMark = Mark.CIRCLE.getSymbol();
 
@@ -39,9 +38,9 @@ public class GameEngine {
         System.out.println(playerList.get(1).getPiece());
     }
 
-    public void Play(int myIndex) {
+    public void play(int myIndex) {
         setText(myIndex);
-        CheckWin();
+        checkWin();
         System.out.println(win);
     }
 
@@ -63,7 +62,7 @@ public class GameEngine {
         cells[myI] = playerList.get(player).getPiece();
     }
 
-    public boolean CheckHorizontal(){
+    public boolean checkHorizontal(){
 
         int i = 0;
 
@@ -98,7 +97,7 @@ public class GameEngine {
         return win;
     }
 
-    public boolean CheckVertical(){
+    public boolean checkVertical(){
 
         int i = 0;
 
@@ -132,7 +131,7 @@ public class GameEngine {
         }
         return win;
     }
-    public boolean CheckDiagonal(){
+    public boolean checkDiagonal(){
 
         int i = 0;
 
@@ -161,7 +160,7 @@ public class GameEngine {
         return win;
     }
 
-    public boolean CheckTie(){
+    public boolean checkTie(){
 
         int i = 0;
         int j = 0;
@@ -181,13 +180,13 @@ public class GameEngine {
         return tie;
     }
 
-    public void CheckWin(){
-        if (CheckDiagonal() == true || CheckVertical() == true || CheckHorizontal() == true){
+    public void checkWin(){
+        if (checkDiagonal() == true || checkVertical() == true || checkHorizontal() == true){
             System.out.println(playerList.get(p1OrP2).getName()+" WIN");
             JOptionPane.showMessageDialog(null, playerList.get(p1OrP2).getName() + " har vunnit!", "", JOptionPane.INFORMATION_MESSAGE);
             Reset();
         }
-        else if (CheckTie() == true){
+        else if (checkTie() == true){
             System.out.println("TIE");
             JOptionPane.showMessageDialog(null, "Oavgjort!", "", JOptionPane.INFORMATION_MESSAGE);
             Reset();
